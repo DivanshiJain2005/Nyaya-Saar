@@ -13,7 +13,6 @@ import {
   Download,
   RefreshCw,
   Scale,
-  ArrowRight,
   Gavel,
   BookOpen,
   Shield,

@@ -9,14 +9,11 @@ import {
   Download,
   Copy,
   Eye,
-  BarChart3,
-  Shield,
   Gavel,
   Scale,
   Tag,
   BookOpen,
   Languages,
-  ArrowRight,
 } from "lucide-react";
 import { apiService } from "../services/api";
 
@@ -52,6 +49,7 @@ interface AnalysisResult {
     concerns: string[];
   };
   simplifiedSummary: string;
+  summary: string;
   multilingualSummary: {
     hindi: string;
     english: string;
@@ -61,6 +59,8 @@ interface AnalysisResult {
     marathi: string;
   };
   recommendations: string[];
+  keyPoints: string[];
+  riskScore: number;
 }
 
 const DocumentAnalysis: React.FC = () => {
@@ -121,7 +121,7 @@ const DocumentAnalysis: React.FC = () => {
         file || undefined,
         textInput.trim() || undefined
       );
-      setAnalysisResult(result);
+      setAnalysisResult(result as AnalysisResult);
     } catch (err) {
       setError("Failed to analyze document. Please try again.");
       console.error("Analysis error:", err);
@@ -138,16 +138,16 @@ const DocumentAnalysis: React.FC = () => {
     }
   };
 
-  const getRiskColor = (risk: string) => {
-    if (risk === "high") return "text-red-600 bg-red-50 border-red-200";
-    if (risk === "medium")
+  const getRiskColor = (riskScore: number) => {
+    if (riskScore >= 70) return "text-red-600 bg-red-50 border-red-200";
+    if (riskScore >= 40)
       return "text-yellow-600 bg-yellow-50 border-yellow-200";
     return "text-green-600 bg-green-50 border-green-200";
   };
 
-  const getRiskLabel = (risk: string) => {
-    if (risk === "high") return "High Risk";
-    if (risk === "medium") return "Medium Risk";
+  const getRiskLabel = (riskScore: number) => {
+    if (riskScore >= 70) return "High Risk";
+    if (riskScore >= 40) return "Medium Risk";
     return "Low Risk";
   };
 
@@ -418,7 +418,7 @@ const DocumentAnalysis: React.FC = () => {
                   </h3>
                   <div className="bg-green-50 rounded-lg p-4">
                     <p className="text-gray-800">
-                      {analysisResult.multilingualSummary}
+                      {analysisResult.multilingualSummary.hindi}
                     </p>
                   </div>
                 </div>
@@ -435,7 +435,7 @@ const DocumentAnalysis: React.FC = () => {
                         key={index}
                         className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
                       >
-                        {tag}
+                        {tag.category}
                       </span>
                     ))}
                   </div>
@@ -454,7 +454,7 @@ const DocumentAnalysis: React.FC = () => {
                         className="flex items-center p-2 bg-purple-50 rounded-lg"
                       >
                         <BookOpen className="h-4 w-4 text-purple-600 mr-2" />
-                        <span className="text-gray-800">{statute}</span>
+                        <span className="text-gray-800">{statute.statute}</span>
                       </div>
                     ))}
                   </div>
@@ -466,7 +466,7 @@ const DocumentAnalysis: React.FC = () => {
                     Key Points
                   </h3>
                   <ul className="space-y-2">
-                    {analysisResult.keyPoints.map((point, index) => (
+                    {analysisResult.keyPoints.map((point: string, index: number) => (
                       <li key={index} className="flex items-start">
                         <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700">{point}</span>

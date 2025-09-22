@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import {
-  Upload,
   FileText,
   Shield,
   AlertTriangle,
@@ -14,7 +13,6 @@ import {
   Eye,
   Copy,
   Scale,
-  ArrowRight,
 } from "lucide-react";
 import { useGoogleCloud } from "../contexts/GoogleCloudContext";
 

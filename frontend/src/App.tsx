@@ -1,8 +1,6 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleCloudProvider } from "./contexts/GoogleCloudContext";
 import { AuthProvider } from "./contexts/AuthContext";
-import Layout from "./components/Layout";
 import LandingPage from "./pages/LandingPage";
 import DocumentSimplifier from "./pages/DocumentSimplifier";
 import BailRecognizer from "./pages/BailRecognizer";

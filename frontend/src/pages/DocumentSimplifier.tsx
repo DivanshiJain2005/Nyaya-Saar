@@ -11,7 +11,6 @@ import {
   Copy,
   Share2,
   Scale,
-  ArrowRight,
 } from "lucide-react";
 import { useGoogleCloud } from "../contexts/GoogleCloudContext";
 

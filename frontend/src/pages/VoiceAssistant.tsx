@@ -3,7 +3,6 @@ import {
   Mic,
   MicOff,
   Volume2,
-  VolumeX,
   Play,
   Pause,
   Square,
@@ -14,7 +13,6 @@ import {
   CheckCircle,
   AlertTriangle,
   Scale,
-  ArrowRight,
 } from "lucide-react";
 import { useGoogleCloud } from "../contexts/GoogleCloudContext";
 
@@ -32,7 +30,7 @@ const VoiceAssistant: React.FC = () => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
+  const [currentAudio] = useState<HTMLAudioElement | null>(
     null
   );
   const [isPaused, setIsPaused] = useState(false);

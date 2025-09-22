@@ -7,19 +7,14 @@ import {
   Search,
   Mic,
   ArrowRight,
-  TrendingUp,
   Clock,
   CheckCircle,
   AlertTriangle,
-  Users,
   BarChart3,
   Tag,
   BookOpen,
   Languages,
   Scale,
-  Calendar,
-  PieChart,
-  MessageSquare,
 } from "lucide-react";
 
 const Dashboard: React.FC = () => {
@@ -301,7 +296,7 @@ const Dashboard: React.FC = () => {
                 Quick Access
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                {quickAccessItems.map((item, index) => (
+                {quickAccessItems.map((item) => (
                   <Link
                     key={item.label}
                     to={item.path}

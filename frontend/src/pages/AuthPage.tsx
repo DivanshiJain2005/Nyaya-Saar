@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Scale, Eye, EyeOff, Loader2, CheckCircle } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -17,7 +17,6 @@ const AuthPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { login, register } = useAuth();
-  const location = useLocation();
   const navigate = useNavigate();
 
   const handleInputChange = (
