@@ -1,0 +1,47 @@
+{
+    "name": "nyaya-saar-backend",
+    "version": "1.0.0",
+    "description": "Backend API for Nyaya Saar Legal AI Platform",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js",
+        "build": "echo 'No build step required'",
+        "test": "echo 'No tests specified'"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "helmet": "^7.1.0",
+        "morgan": "^1.10.0",
+        "dotenv": "^16.3.1",
+        "@google-cloud/aiplatform": "^3.0.0",
+        "@google-cloud/documentai": "^7.0.0",
+        "@google-cloud/translate": "^8.0.0",
+        "@google-cloud/speech": "^6.0.0",
+        "@google-cloud/text-to-speech": "^5.0.0",
+        "@google-cloud/language": "^6.0.0",
+        "@google/generative-ai": "^0.21.0",
+        "multer": "^1.4.5-lts.1",
+        "express-rate-limit": "^7.1.5",
+        "compression": "^1.7.4",
+        "axios": "^1.6.0",
+        "pdf-parse": "^1.1.1",
+        "mammoth": "^1.6.0",
+        "cheerio": "^1.0.0-rc.12",
+        "node-cron": "^3.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    },
+    "keywords": [
+        "legal",
+        "ai",
+        "document-analysis",
+        "google-cloud",
+        "nlp"
+    ],
+    "author": "Nyaya Saar Team",
+    "license": "MIT"
+}
