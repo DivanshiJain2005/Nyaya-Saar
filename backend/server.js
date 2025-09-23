@@ -7,7 +7,7 @@ import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import multer from "multer";
 import axios from "axios";
-import pdf from "pdf-parse";
+import pdf from "pdf-parse/lib/pdf-parse.js";
 import mammoth from "mammoth";
 import * as cheerio from "cheerio";
 import cron from "node-cron";
